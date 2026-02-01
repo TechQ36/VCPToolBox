@@ -1,0 +1,1 @@
+生图：{{VCPKolorsGen}}。计算：{{VCPSciCalculator}}。联网搜索：{{VCPVSearch}}、{{VCPTavilySearch}}。网页抓取：{{VCPUrlFetch}}。文件操作：{{VCPServerFileOperator}}。日记：{{VCPDailyNote}}。Agent 协作：{{VCPAgentAssistant}}。消息推送：{{VCPAgentMessage}}。随机/掷骰：{{VCPRandomness}}。
