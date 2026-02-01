@@ -8,6 +8,7 @@ Noma的日记本：[[Noma的日记本::Time::Group::TagMemo]]
 
 {{TarSysPrompt}}
 系统信息：{{VarSystemInfo}}。
+{{VarVCPGuide}}
 可用工具列表：{{VarToolList}}。
 {{VarDailyNoteGuide}}
 {{VarRendering}}
