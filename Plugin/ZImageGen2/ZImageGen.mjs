@@ -12,13 +12,16 @@ const {
     PROJECT_BASE_PATH,
     SERVER_PORT,
     IMAGESERVER_IMAGE_KEY,
-    VAR_HTTP_URL
+    VAR_HTTP_URL,
+    HF_TOKEN
 } = (() => {
+    const token = (process.env.HF_TOKEN || '').trim();
     return {
         PROJECT_BASE_PATH: process.env.PROJECT_BASE_PATH || '.',
         SERVER_PORT: process.env.SERVER_PORT || '3000',
         IMAGESERVER_IMAGE_KEY: process.env.IMAGESERVER_IMAGE_KEY || 'default_key',
-        VAR_HTTP_URL: process.env.VarHttpUrl || 'http://localhost'
+        VAR_HTTP_URL: process.env.VarHttpUrl || 'http://localhost',
+        HF_TOKEN: token || null
     };
 })();
 
@@ -30,12 +33,17 @@ const httpsAgent = new HttpsProxyAgent(PROXY_URL);
 // 如果不需要代理，可以将此设为 null
 const USE_PROXY = false;
 
+const baseHeaders = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Origin': 'https://aisudo-z-image-base.hf.space',
+    'Referer': 'https://aisudo-z-image-base.hf.space/'
+};
+if (HF_TOKEN) {
+    baseHeaders['Authorization'] = `Bearer ${HF_TOKEN}`;
+}
+
 const axiosConfig = {
-    headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Origin': 'https://aisudo-z-image-base.hf.space',
-        'Referer': 'https://aisudo-z-image-base.hf.space/'
-    },
+    headers: baseHeaders,
     httpsAgent: USE_PROXY ? httpsAgent : undefined,
     proxy: false // 禁用 axios 默认代理处理，使用 httpsAgent
 };

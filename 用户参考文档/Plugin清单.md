@@ -19,6 +19,7 @@
 | AgentAssistant | AgentAssistant | hybridservice | 在用 | Agent 协作/联络其他 Agent |
 | AgentMessage | AgentMessage | synchronous | 在用 | 向用户设备推送消息 |
 | ArxivDailyPapers | ArxivDailyPapers | static | 静态·服务 | Arxiv 每日论文 |
+| BackendImageGen | BackendImageGen | synchronous | 在用 | 自选模型生图（自有 API） |
 | BilibiliFetch | BilibiliFetch | synchronous | 可选 | B 站视频/直播内容获取 |
 | CapturePreprocessor | CapturePreprocessor | messagePreprocessor | 静态·服务 | 捕获预处理器 |
 | ChromeBridge | ChromeBridge | hybridservice | 可选 | Chrome 浏览器桥接 |

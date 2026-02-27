@@ -1,0 +1,28 @@
+{
+  "manifestVersion": "1.0.0",
+  "name": "BackendImageGen",
+  "displayName": "自选模型生图（自有 API）",
+  "version": "0.1.0",
+  "description": "与 KolorsGen 相同的工具调用方式，但走 config.env 中配置的 API_URL + 图像模型（WhitelistImageModel/VarBackendImageModel），不依赖硅基流动。",
+  "author": "VCPToolBox",
+  "pluginType": "synchronous",
+  "entryPoint": {
+    "type": "nodejs",
+    "command": "node BackendImageGen.mjs"
+  },
+  "communication": {
+    "protocol": "stdio"
+  },
+  "configSchema": {
+    "VarBackendImageModel": "string"
+  },
+  "capabilities": {
+    "invocationCommands": [
+      {
+        "commandIdentifier": "BackendImageGenerateImage",
+        "description": "调用此工具通过【自有模型 API】生成图片。使用 config.env 中的 API_URL、API_Key 和 WhitelistImageModel（或 VarBackendImageModel）指定的模型，不经过硅基流动。请在回复中使用以下格式请求生图，参数值用「始」和「末」包裹：\n<<<[TOOL_REQUEST]>>>\ntool_name:「始」BackendImageGen「末」,\nprompt:「始」(必需) 用于图片生成的详细提示词，中英文均可。「末」,\nresolution:「始」(可选) 图片分辨率，可选值：「1024x1024」、「960x1280」、「768x1024」、「720x1440」、「720x1280」。「末」\n(可选参数：seed:「始」整数种子「末」)\n<<<[END_TOOL_REQUEST]>>>\n\n执行完毕后将返回图片的可访问 URL 和 base64，请用 <img> 标签展示给用户。",
+        "example": "<<<[TOOL_REQUEST]>>>\ntool_name:「始」BackendImageGen「末」,\nprompt:「始」一只橘猫在阳光下打盹「末」,\nresolution:「始」1024x1024「末」\n<<<[END_TOOL_REQUEST]>>>"
+      }
+    ]
+  }
+}

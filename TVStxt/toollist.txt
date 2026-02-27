@@ -1,4 +1,4 @@
-生图：{{VCPKolorsGen}}
+生图：{{VCPZImageGen2}}
 计算：{{VCPSciCalculator}}
 联网搜索：{{VCPVSearch}}、{{VCPTavilySearch}}
 网页抓取：{{VCPUrlFetch}}
